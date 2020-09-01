@@ -1,2 +1,0 @@
-# this will deploy simple nodejs api with no database and simple routing
-runtime: nodejs12
