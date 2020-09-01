@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-node-api
+spec:
+  type: LoadBalancer
+  selector:
+    app: simple-node-api
+  ports:
+  - port: 80
+    targetPort: 8080

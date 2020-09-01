@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-node-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-node-api
+  template:
+    metadata:
+      labels:
+        app: simple-node-api
+    spec:
+      containers:
+      - name: simple-node-api-app
+        image: gcr.io/wave26-sellbytel-methkal/simple-node-api
+        ports:
+        - containerPort: 8080
+        env:
+          - name: PORT
+            value: "8080"
