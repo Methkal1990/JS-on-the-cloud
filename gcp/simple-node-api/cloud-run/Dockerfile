@@ -8,4 +8,4 @@ RUN npm install --only=production
 
 COPY . ./
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
