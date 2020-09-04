@@ -1,8 +1,15 @@
 const express = require("express");
 const resources = require("./routes/resources");
+const morgan = require("morgan")
 
 
-const app = express();
+// create an express app instance
+const app = express()
+
+app.use(express.json())
+
+// request logging using morgan
+app.use(morgan("common"));
 
 app.get("/", (req, res) => {
     res.send(`
