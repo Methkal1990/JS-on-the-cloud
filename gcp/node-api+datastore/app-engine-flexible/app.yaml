@@ -1,2 +1,3 @@
 # this will deploy simple nodejs api with datastore database and simple routing
-runtime: nodejs12
+runtime: nodejs
+env: flex
