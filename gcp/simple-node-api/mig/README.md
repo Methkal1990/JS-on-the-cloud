@@ -58,7 +58,7 @@ gcloud compute instance-groups set-named-ports my-mig \
 
 
 # Create health check
-# if you specify --request-path make sure that you have this path in your app. if you leave this as default it will probs the / endpoint
+**if you specify --request-path make sure that you have this path in your app. if you leave this as default it will probs the / endpoint**
 gcloud compute health-checks create http my-http-check \
   --port 3000 \
   --request-path=/health_check \
@@ -110,11 +110,11 @@ gcloud compute forwarding-rules create my-forwarding-rule \
   --target-https-proxy=my-https-proxy \
   --ports=443
 
-# Click the load balancer that you just created.
-# In the Backend section, confirm that the VMs are healthy. 
-# The Healthy column should be populated, indicating that both VMs are healthy (2/2). 
-# If you see otherwise, first try reloading the page. 
-# It can take a few moments for the Cloud Console to indicate that the VMs are healthy. 
-# If the backends do not appear healthy after a few minutes, review the firewall configuration and the network tag assigned to your backend VMs.
+Click the load balancer that you just created.
+In the Backend section, confirm that the VMs are healthy. 
+The Healthy column should be populated, indicating that both VMs are healthy (2/2). 
+If you see otherwise, first try reloading the page. 
+It can take a few moments for the Cloud Console to indicate that the VMs are healthy. 
+If the backends do not appear healthy after a few minutes, review the firewall configuration and the network tag assigned to your backend VMs.
 
 # reference article https://medium.com/@pauloawgcarvalho/a-complete-guide-to-deploying-a-containerized-application-using-managed-instance-groups-migs-in-2593c0819ab2
