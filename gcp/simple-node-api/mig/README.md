@@ -134,5 +134,3 @@ The Healthy column should be populated, indicating that both VMs are healthy (2/
 If you see otherwise, first try reloading the page. 
 It can take a few moments for the Cloud Console to indicate that the VMs are healthy. 
 If the backends do not appear healthy after a few minutes, review the firewall configuration and the network tag assigned to your backend VMs.
-
-## reference article https://medium.com/@pauloawgcarvalho/a-complete-guide-to-deploying-a-containerized-application-using-managed-instance-groups-migs-in-2593c0819ab2
