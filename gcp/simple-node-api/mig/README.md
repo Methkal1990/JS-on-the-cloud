@@ -58,7 +58,7 @@ gcloud compute instance-groups set-named-ports my-mig \
 
 
 ## Create health check
-## if you specify --request-path make sure that you have this path in your app. if you leave this as default it will probs the / endpoint**
+**if you specify --request-path make sure that you have this path in your app. if you leave this as default it will probs the / endpoint**
 gcloud compute health-checks create http my-http-check \
   --port 3000 \
   --request-path=/health_check \
