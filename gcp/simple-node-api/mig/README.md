@@ -1,4 +1,4 @@
-# docarize your app and make note of the image tag
+## docarize your app and make note of the image tag
 gcloud builds submit -t gcr.io/PROJECT_ID/IMAGE-TAG .
 
 # Create a custom VPC network
