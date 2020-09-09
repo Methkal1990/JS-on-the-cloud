@@ -130,7 +130,7 @@ gcloud compute forwarding-rules create my-forwarding-rule \
 ```
 Click the load balancer that you just created.
 In the Backend section, confirm that the VMs are healthy. 
-The Healthy column should be populated, indicating that both VMs are healthy (2/2). 
+The Healthy column should be populated, indicating that both VMs are healthy (3/3). 
 If you see otherwise, first try reloading the page. 
 It can take a few moments for the Cloud Console to indicate that the VMs are healthy. 
 If the backends do not appear healthy after a few minutes, review the firewall configuration and the network tag assigned to your backend VMs.
