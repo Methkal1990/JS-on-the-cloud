@@ -1,3 +1,5 @@
+Side note: This guide requires that you have a valid and verified domain name.
+
 ## docarize your app and make note of the image tag
 ```
 gcloud builds submit -t gcr.io/PROJECT_ID/IMAGE-TAG .
