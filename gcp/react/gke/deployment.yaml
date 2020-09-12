@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-gke
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: react-gke
+  template:
+    metadata:
+      labels:
+        app: react-gke
+    spec:
+      containers:
+      - name: react-gke-app
+        image: gcr.io/wave26-sellbytel-methkal/react-gke
+        ports:
+        - containerPort: 8080
+        env:
+          - name: PORT
+            value: "8080"
