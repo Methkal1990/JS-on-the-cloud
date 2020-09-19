@@ -1,13 +1,17 @@
 # this will deploy simple nodejs api with datastore database and simple routing
-runtime: nodejs12
+runtime: nodejs
+env: flex
 
 # anyone access to your database. Do not add this file to your source control.
 env_variables:
   DB_USER: 'USER_NAME'
   DB_PASS: 'USER_PASS'
   DB_NAME: 'DATABASE_NAME'
-  # for public ip instances you can connect only using unix socket method and TCP is only allowed using the Cloud SQL proxy because Cloud SQL doesn't allow unsecure connections
-  CLOUD_SQL_CONNECTION_NAME: INSTANCE_CONNECTION_NAME
+  # for public ip instances you can connect either with unix socket or tcp however you need to enable the connection in beta_settings
+  # for unix socket
+  # CLOUD_SQL_CONNECTION_NAME: INSTANCE_CONNECTION_NAME
+  # for tcp. Notice port here should be the same as in the cloud_sql_instances under the beta_settings
+  DB_HOST: '172.17.0.1:3306' # host is always 172.17.0.1 because this is where the cloud sql proxy which will forward traffic to the sql instance
   # 2- for private ip instances you have also to specify the
   # the vpc connector and set the vpc serverless access properly
   # check this https://cloud.google.com/sql/docs/mysql/connect-app-engine-standard#configuring
@@ -16,6 +20,14 @@ env_variables:
 # vpc_access_connector:
 # region of the vpc connector should be the same as the app engine region
 #   name: projects/PROJECT_ID/locations/REGION/connectors/CONNECTOR_NAME
+
+# this setting only for app engine flex and it's needed to enable connecting either with unix socket like the example or with
+# tcp
+beta_settings:
+  # enable connection with unix socket
+  # cloud_sql_instances: wave26-sellbytel-methkal:us-central1:nodejs-api-mysql
+  # enable connection with tcp
+  cloud_sql_instances: INSTANCE_CONNECTION_NAME=tcp:3306
 
 # side note: if you see in the logs error like:
 # Access denied for user 'root'@'1.2.3.4' (using password: YES)
