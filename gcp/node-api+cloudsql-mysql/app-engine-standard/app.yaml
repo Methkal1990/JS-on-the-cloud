@@ -1,0 +1,22 @@
+# this will deploy simple nodejs api with datastore database and simple routing
+runtime: nodejs12
+
+# anyone access to your database. Do not add this file to your source control.
+env_variables:
+  DB_USER: 'USER_NAME'
+  DB_PASS: 'USER_PASS'
+  DB_NAME: 'DATABASE_NAME'
+  # for public ip instances you can connect only using unix socket method and TCP is only allowed using the Cloud SQL proxy because Cloud SQL doesn't allow unsecure connections
+  CLOUD_SQL_CONNECTION_NAME: INSTANCE_CONNECTION_NAME
+  # 2- for private ip instances you have also to specify the
+  # the vpc connector and set the vpc serverless access properly
+  # check this https://cloud.google.com/sql/docs/mysql/connect-app-engine-standard#configuring
+  # use only TCP connections
+  # DB_HOST: 'INSTANCE_PRIVATE_IP:3306'
+# vpc_access_connector:
+#   name: projects/wave26-sellbytel-methkal/locations/europe-west2/connectors/node-private-sql
+
+# side note: if you see in the logs error like:
+# Access denied for user 'root'@'1.2.3.4' (using password: YES)
+# verify that you are using the correct password and that you are connecting over SSL if the instance requires it. 
+# otherwise enable the allow unsecure connections from connections tab in your cloud sql instance page
